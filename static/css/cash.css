@@ -1,0 +1,9 @@
+table {
+    display: none;
+    position: fixed
+}
+
+#submit {
+    display: none;
+    position: relative
+}

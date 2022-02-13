@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{% static 'javascript/pt_make.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/make_pterm.css' %}">
+</head>
+<body>
+        <form>
+            <label for="PTDESC">Payment Term Description</label>
+            <input type="text" id="PTDESC" placeholder="Payment Term Description">
+            <br>
+            <label for="PTDAYS">Payment Term Days</label>
+            <input type="text" id="PTDAYS" placeholder="Days for Payment">
+             <br>
+            <label for="basisSelect">Basis For Due Date</label>
+            <select id="basisSelect" onchange="myFunction(this)">
+                <option selected disabled hidden>Select an Option</option>
+                <option value="Shipping Date">001</option>
+                <option value="Order Date">002</option>
+            </select>
+            <p id="demo"></p>
+            <button id="Submit">submit</button>
+        </form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{% static 'javascript/cash.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/cash.css' %}">
+</head>
+<body>
+    <form id="header">
+        <label for="CUSTCODE">Customer Code</label>
+        <input id="CUSTCODE" placeholder="Customer Code" required="required">
+        <br>
+        <label for="ORDERDATE">Order Date</label>
+        <input type="date" id="ORDERDATE" placeholder="Order Date" required="required">
+        <br>
+        <label for="RDD">Requested Delivery Date</label>
+        <input type="date" id="RDD" placeholder="Delivery Date" required>
+        <br>
+        <label for="PTCODE">Payment Term Code</label>
+        <input id="PTCODE" placeholder="Payterm Code" required>
+        <br>
+        <label for="lineitem">Add Line Item</label>
+        <button type="submit" id="lineitem">Add Line Item</button>
+    </form>
+    <button id="submit">Submit</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <table id="sales">
+        <thead>
+            <th>Item Number</th>
+            <th>Product Code</th>
+            <th>Quantity</th>
+            <th>Price Per Unit</th>
+            <th>Warehouse</th>
+        </thead>
+    </table>
+</body>
+</html>

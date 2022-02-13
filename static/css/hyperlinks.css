@@ -1,0 +1,28 @@
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:link {
+  color: black;
+}
+a:visited {
+  color: black;
+}
+a:visited {
+    margin:0px 20px 0px 20px;
+}
+a:link {
+    margin:0px 60px 0px 60px;
+}
+a:link{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+a:visited{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}

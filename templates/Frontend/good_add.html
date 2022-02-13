@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{% static 'javascript/GOODADD.js' %}"></script>
+</head>
+<body>
+  <form>
+      <label for="DATE">Order Date</label>
+      <input type="date" id="DATE" placeholder="Order Date">
+      <br>
+      <label for="PRODCODE">Product Code</label>
+      <input id="PRODCODE" placeholder="Product Code">
+      <br>
+      <label for="WHCODE">Warehouse Code</label>
+      <input id="WHCODE" placeholder="Warehouse Code">
+      <br>
+      <label for="QTY">Order Quantity</label>
+      <input id="QTY" placeholder="Order Quantity">
+      <br>
+      <label for="PPP">Price Per Piece</label>
+      <input id="PPP" placeholder="Price Per Piece">
+      <br>
+      <label for="PONUM">PO Number</label>
+      <input id="PONUM" placeholder="PO Number">
+      <br>
+      <label for="VENDOR">Vendor</label>
+      <input id="VENDOR" placeholder="Vendor">
+      <br>
+      <label for="Submit">Submit</label>
+      <button id="Submit">Submit</button>
+  </form>
+</body>
+</html>

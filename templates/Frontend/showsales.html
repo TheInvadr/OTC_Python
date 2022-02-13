@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{% static 'javascript/salesshow.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/ayo.css' %}">
+</head>
+<body>
+    <table>
+      <thead>
+            <th>SONUM</th>
+            <th>SODATE</th>
+            <th>RDD</th>
+            <th>ORDERAMT</th>
+            <th>PRODCODE</th>
+            <th>WHCODE</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+        <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+        <div class="modal-content">
+            <form>
+            </form>
+            <table id="sales">
+                <thead>
+                    <th>SONUM</th>
+                    <th>Item Number</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Product Code</th>
+                    <th>Warehouse</th>
+                </thead>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
