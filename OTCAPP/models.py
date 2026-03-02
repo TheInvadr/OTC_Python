@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class WHOUSE(models.Model):
-    WHCODE = models.AutoField(primary_key=True, max_length=3, blank=False, default='')
+    WHCODE = models.AutoField(primary_key=True, blank=False, default='')
     WHNAME = models.CharField(primary_key=False, max_length=25, blank=False, default='')
     WHADD = models.CharField(primary_key=False, max_length=25, blank=False, default='')
 
@@ -21,22 +21,22 @@ class PTBASIS(models.Model):
          ordering = ('BASISCODE',)
 
 class PAYTERM(models.Model):
-    PTERMCODE = models.AutoField(primary_key=True, max_length=4, blank=False, default='')
+    PTERMCODE = models.AutoField(primary_key=True, blank=False, default='')
     PTDESC = models.CharField(primary_key=False, max_length=25, blank=False, default='')
     PTDAYS = models.PositiveIntegerField(blank=False)
     PTBASISCODE = models.ForeignKey(PTBASIS, on_delete=models.CASCADE)
     class Meta:
         ordering = ('PTERMCODE',)
 class CUSTOMER(models.Model):
-     CUSTCODE = models.AutoField(primary_key=True,max_length=4,blank=False)
+     CUSTCODE = models.AutoField(primary_key=True,blank=False)
      CUSTNAME = models.CharField(primary_key=False, max_length=25,blank=False,default='')
      CUSTADD = models.CharField(primary_key=False,max_length=25,blank=False,default='')
      PTERMCODE = models.ForeignKey(PAYTERM,on_delete=models.CASCADE)
      WHCODE = models.ForeignKey(WHOUSE,on_delete=models.CASCADE)
-     ORDERVALUE = models.IntegerField(primary_key=False,max_length=10)
+     ORDERVALUE = models.IntegerField(primary_key=False)
 
 class PRODUCT(models.Model):
-    PRODCODE = models.AutoField(primary_key=True,max_length=4,blank=False,default='')
+    PRODCODE = models.AutoField(primary_key=True,blank=False,default='')
     PRODNAME = models.CharField(primary_key=False,max_length=25,blank=False,default='')
     PRODGRP = models.CharField(primary_key=False,max_length=10,default='')
     INVENT = models.PositiveSmallIntegerField(primary_key=False,blank=True,default=0)
@@ -47,7 +47,7 @@ class PRODUCT(models.Model):
         ordering = ('PRODCODE',)
 
 class GOODRECIEPT(models.Model):
-    BATCHNO = models.AutoField(primary_key=True,max_length=6,blank=False,default='')
+    BATCHNO = models.AutoField(primary_key=True,blank=False,default='')
     DATE = models.DateField(primary_key=False)
     PRODCODE = models.PositiveIntegerField(primary_key=False,blank=False,default=0)
     WHCODE = models.ForeignKey(WHOUSE,on_delete=models.CASCADE)
@@ -60,7 +60,7 @@ class GOODRECIEPT(models.Model):
 
 
 class CHANGE(models.Model):
-    CHANGENO = models.AutoField(primary_key=True,max_length=10,blank=False,default='')
+    CHANGENO = models.AutoField(primary_key=True,blank=False,default='')
     BATCHNO = models.CharField(primary_key=False,max_length=6,blank=False,default='')
     FIELDNAME = models.CharField(primary_key=False,max_length=600,blank=False,default='')
     OLDVALUE = models.CharField(primary_key=False,max_length=600,blank=False,default='')
@@ -71,9 +71,9 @@ class CHANGE(models.Model):
     class Meta:
         ordering = ('CHANGENO',)
 class salesheader(models.Model):
-    SONUM = models.AutoField(primary_key=True,max_length=6,blank=False,default='')
-    SODATE = models.DateField(primary_key=False,max_length=10,blank=False,default='')
-    RDD = models.DateField(primary_key=False,max_length=10,blank=False,default='')
+    SONUM = models.AutoField(primary_key=True,blank=False,default='')
+    SODATE = models.DateField(primary_key=False,blank=False,default='')
+    RDD = models.DateField(primary_key=False,blank=False,default='')
     CUSTCODE = models.ForeignKey(CUSTOMER,on_delete=models.CASCADE)
     PTERM = models.ForeignKey(PAYTERM,on_delete=models.CASCADE)
     ORDERAMT = models.IntegerField(primary_key=False,default='')
