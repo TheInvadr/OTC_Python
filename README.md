@@ -47,7 +47,7 @@ The OTC cycle implemented here covers:
 
 ---
 
-## Data Model
+<!-- ## Data Model
 
 ```mermaid
 erDiagram
@@ -131,7 +131,7 @@ erDiagram
     GOODRECIEPT ||--o{ CHANGE : "audited by"
 ```
 
----
+--- -->
 
 ## API Reference
 
