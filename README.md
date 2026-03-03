@@ -47,24 +47,6 @@ The OTC cycle implemented here covers:
 
 ---
 
-## Architecture
-
-```mermaid
-graph TD
-    Browser["Browser\n(HTML + JS)"]
-    FE["Frontend App\nDjango Template Views"]
-    API["OTCAPP\nREST API Views"]
-    DB[("SQLite / MySQL\nDatabase")]
-
-    Browser -->|"Page Request"| FE
-    FE -->|"Renders HTML template"| Browser
-    Browser -->|"fetch() AJAX calls"| API
-    API -->|"JSON Response"| Browser
-    API -->|"Raw SQL / ORM"| DB
-```
-
----
-
 ## Data Model
 
 ```mermaid
