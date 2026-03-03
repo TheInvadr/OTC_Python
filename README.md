@@ -8,8 +8,8 @@ A **Django REST Framework** web application implementing an **Order-to-Cash (OTC
 
 - [Overview](#overview)
 - [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
-- [Data Model](#data-model)
+<!-- - [Architecture](#architecture)
+- [Data Model](#data-model) -->
 - [API Reference](#api-reference)
 - [Frontend Pages](#frontend-pages)
 - [Order-to-Cash Flow](#order-to-cash-flow)
