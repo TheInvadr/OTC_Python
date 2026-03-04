@@ -12,9 +12,9 @@ A **Django REST Framework** web application implementing an **Order-to-Cash (OTC
 - [Data Model](#data-model) -->
 - [API Reference](#api-reference)
 - [Frontend Pages](#frontend-pages)
-- [Order-to-Cash Flow](#order-to-cash-flow)
+<!-- - [Order-to-Cash Flow](#order-to-cash-flow) -->
 - [Local Setup](#local-setup)
-- [Project Structure](#project-structure)
+<!-- - [Project Structure](#project-structure) -->
 
 ---
 
@@ -220,48 +220,6 @@ All API endpoints are served under the `OTCAPP` app. The frontend communicates w
 
 ---
 
-## Order-to-Cash Flow
-
-```mermaid
-flowchart LR
-    A([Start]) --> B[Create Warehouse]
-    B --> C[Define Payment Basis]
-    C --> D[Define Payment Terms]
-    D --> E[Register Customer\nassign PT + Warehouse]
-    E --> F[Add Products\nto Catalogue]
-    F --> G[Receive Goods\nGoods Receipt]
-    G --> H[Create Sales Order\nHeader]
-    H --> I[Add Line Items\nProduct + Qty + Price + Warehouse]
-    I --> J[Order Amount\nUpdated on Customer]
-    J --> K([End])
-
-    style A fill:#4caf50,color:#fff
-    style K fill:#f44336,color:#fff
-```
-
-### Goods Receipt Audit Trail
-
-When a goods receipt record is updated, the system uses `deepdiff` to detect changed fields and writes each change to the `CHANGE` table automatically.
-
-```mermaid
-sequenceDiagram
-    actor User
-    participant JS as Frontend JS
-    participant API as OTCAPP API
-    participant DB as Database
-
-    User->>JS: Edits goods receipt fields
-    JS->>API: PUT /GOODS/KING/<batchno> [old, new]
-    API->>API: DeepDiff(old, new)
-    loop For each changed field
-        API->>DB: INSERT INTO otcapp_change
-    end
-    API->>DB: UPDATE otcapp_goodreciept
-    API-->>JS: 201 Created
-    JS-->>User: Updated table row
-```
-
----
 
 ## Local Setup
 
@@ -318,44 +276,3 @@ Then install the MySQL driver: `pip install mysqlclient`
 
 ---
 
-## Project Structure
-
-```
-OTC_Python/
-├── manage.py
-├── db.sqlite3                  # SQLite database (auto-created)
-│
-├── OTC/                        # Django project config
-│   ├── settings.py             # App settings, DB config, installed apps
-│   ├── urls.py                 # Root URL router
-│   └── wsgi.py
-│
-├── OTCAPP/                     # REST API application
-│   ├── models.py               # All data models (9 models)
-│   ├── serializers.py          # DRF serializers for each model
-│   ├── views.py                # All REST API view functions
-│   └── urls.py                 # API URL patterns (re_path based)
-│
-├── Frontend/                   # Template-serving application
-│   └── views.py                # Simple views that render HTML templates
-│
-├── templates/
-│   └── Frontend/               # HTML templates (14 pages)
-│       ├── masterfile.html     # Navigation hub
-│       ├── make_warehouse.html
-│       ├── show_warehouse.html
-│       ├── make_pterm.html
-│       ├── show_payments.html
-│       ├── make_cust.html
-│       ├── make_prod.html
-│       ├── prod_show.html
-│       ├── good_add.html
-│       ├── goodshow.html
-│       ├── sales.html          # Sales order entry
-│       ├── showsales.html
-│       └── ...
-│
-└── static/
-    ├── css/                    # Per-page stylesheets
-    └── javascript/             # Per-page JS (Fetch API calls)
-```
